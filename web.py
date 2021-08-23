@@ -6,4 +6,4 @@ def index():
   return render_template('home.html')
 @app.route('/about')
 def about_page():
-  return render_template('about.html')
+  return render_template('about.html',item_name='Phone' )

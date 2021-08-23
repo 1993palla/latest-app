@@ -58,12 +58,12 @@
         <tbody>
             {% for item in items_sec%}
               <tr>
-                <td>Tiger Nixon</td>
-                <td>System Architect</td>
-                <td>Edinburgh</td>
-                <td>61</td>
-                <td>2011/04/25</td>
-                <td>$320,800</td>
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.barcode}}</td>
+                <td>{{item.phone}}</td>
+                <td>{{item.price}}</td>
+                
             </tr>
             {% endfor %}
           

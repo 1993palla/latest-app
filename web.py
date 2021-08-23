@@ -1,5 +1,5 @@
-from flask import Flask
+from flask import Flask, render_templete
 app = Flask(__name__)
 @app.route('/')
 def index():
-  return 'hello heroku this is my first heroku project and added staging for production'
+  return render_template('home.html')

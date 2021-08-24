@@ -11,4 +11,4 @@ def index():
   return render_template('home.html',items_sec=items)
 @app.route('/about')
 def about_page():  
-  return render_template('about.html')
+  return render_template('user_detail.html')

@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My First python application</title>
+   <title>
+          {% block title %}
+
+          {% endblock %}
+      </title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css">
      <link href="ttps://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" >
@@ -26,11 +30,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbar20">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item"> <a class="nav-link" href="#">Home</a> </li>
-                <li class="nav-item"> <a class="nav-link" href="#">Contactus</a> </li>
-                <li class="nav-item"> <a class="nav-link" href="#">About</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="{{ url_for('home_page') }}">Home</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="{{ url_for('about_page') }}">About</a> </li>
+               
             </ul>
-            <p class="d-none d-md-block lead mb-0 text-white"> <i class="fa d-inline fa-lg fa-stop-circle"></i> <b> BBBOOTSTRAP</b> </p>
+           
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item mx-1"> <a class="nav-link" href="#"> <i class="fa fa-github fa-fw fa-lg"></i> </a> </li>
                 <li class="nav-item mx-1"> <a class="nav-link" href="#"> <i class="fa fa-dropbox fa-fw fa-lg"></i> </a> </li>
@@ -40,6 +44,8 @@
     </div>
 </nav>
     </div>
-   
+    {% block content %}
+
+      {% endblock %}
 </body>
 </html>

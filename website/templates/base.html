@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+
+        {% endblock %}
+    </title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" rel="stylesheet"
+        id="bootstrap-css">
+    <link href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css">
+    <link href="ttps://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        body {
+            background-color: #E0F2F1
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="container-fluid"> <button class="navbar-toggler navbar-toggler-right border-0 p-0" type="button"
+                    data-toggle="collapse" data-target="#navbar20">
+                    <p class="navbar-brand text-white mb-0"> <i class="fa d-inline fa-lg fa-stop-circle"></i> BOOTSTRAP
+                    </p>
+                </button>
+                <div class="collapse navbar-collapse" id="navbar20">
+                    <ul class="navbar-nav mr-auto"> 
+                        
+                        <li class="nav-item"> <a class="nav-link" href="/">Home</a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="/logout">Logout</a> </li>
+                      
+                        <li class="nav-item"> <a class="nav-link" href="/login">LogIn</a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="/sign-up">Signup</a> </li>
+                 
+                    </ul>
+
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item mx-1"> <a class="nav-link" href="#"> <i
+                                    class="fa fa-github fa-fw fa-lg"></i> </a> </li>
+                        <li class="nav-item mx-1"> <a class="nav-link" href="#"> <i
+                                    class="fa fa-dropbox fa-fw fa-lg"></i> </a> </li>
+                        <li class="nav-item mx-1"> <a class="nav-link" href="#"> <i
+                                    class="fa fa-bitbucket fa-fw fa-lg"></i> </a> </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+{% with messages = get_flashed_messages(with_categories=true)%}
+{% if messages %}
+    {% for category,  message in messages%}
+    {% if category=='error' %}
+        <div class="alert alert-danger alert-dismissable fade show">
+            {{message}}
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>
+        </div>
+    {%else%}
+        <div class="alert alert-success alert-dismissable fade show">
+            {{message}}
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>
+        </div>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+{% endwith %}
+    <div class="container-fluid mt-5">
+       
+            {% block content %}
+
+            {% endblock %}
+       
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='index.js') }}"></script>
+</body>
+
+</html>
